@@ -3,5 +3,5 @@
     <string name="name">Name</string>
     <string name="surname">Surname</string>
     <string name="email">Email</string>
-    <string name="contact_list">contact list</string>
+    <string name="contact_list">Contact list</string>
 </resources>
