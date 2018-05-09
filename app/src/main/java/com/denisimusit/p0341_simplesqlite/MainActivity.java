@@ -91,11 +91,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     do {
 
-                        // получаем значения по номерам столбцов и пишем все в лог
-                        Log.d(LOG_TAG, "ID = " + cursor.getInt(idIndex) +
+                        // получаем значения по номерам столбцов
+                        String msg = "ID = " + cursor.getInt(idIndex) +
                                 ", name = " + cursor.getString(nameIndex) +
                                 ", surname = " + cursor.getString(surnameIndex) +
-                                ", email = " + cursor.getString(emailIndex));
+                                ", email = " + cursor.getString(emailIndex);
+                        //пишем все в лог
+                        Log.d(LOG_TAG, msg);
+
+                        //выодим все на екран
+                        textViewContentsTable.setText(msg + "\n");
+
+
 
 
                     } while (cursor.moveToNext());
