@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String LOG_TAG = "My log";
     Button btnAdd, btnRead, btnClear;
     EditText etName, etEmail, etSurname;
+    TextView textViewContentsTable;
 
     DBHelper dbHelper;
 
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textViewContentsTable = (TextView)  findViewById(R.id.textViewContentsTable);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
@@ -92,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 ", name = " + cursor.getString(nameIndex) +
                                 ", surname = " + cursor.getString(surnameIndex) +
                                 ", email = " + cursor.getString(emailIndex));
+
+
                     } while (cursor.moveToNext());
                 } else
                     Log.d("mLog", "0 rows");
