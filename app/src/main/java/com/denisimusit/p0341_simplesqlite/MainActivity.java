@@ -108,14 +108,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } while (cursor.moveToNext());
                 } else
                     Log.d("mLog", "0 rows");
-
+                // закрываем подключение к Curcor
                 cursor.close();
                 break;
 
             case R.id.btnClear:
+
+                // удаляем все записи
                 database.delete(DBHelper.TABLE_CONTACTS, null, null);
                 break;
         }
+        // закрываем подключение к БД
         dbHelper.close();
     }
 }
