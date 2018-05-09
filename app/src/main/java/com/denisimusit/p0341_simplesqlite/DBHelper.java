@@ -13,6 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String KEY_ID = "_id";
     public static final String KEY_NAME = "name";
+    public static final String KEY_SURNAME = "surname";
     public static final String KEY_MAIL = "mail";
 
     public DBHelper(Context context) {
@@ -22,6 +23,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        //создает таблицу  TABLE_CONTACTS с полями  KEY_ID, KEY_NAME,  KEY_MAIL, KEY_SURNAME
+        db.execSQL("create table " + TABLE_CONTACTS + "(" + KEY_ID
+                                                    + " integer primary key,"
+                                                    + KEY_NAME + " text,"
+                                                    + KEY_SURNAME + "text,"
+                                                    + KEY_MAIL + "text" + ")");
 
     }
 
