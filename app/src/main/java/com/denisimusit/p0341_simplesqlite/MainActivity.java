@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         etName = (EditText) findViewById(R.id.EditTextName);
         etSurname = (EditText) findViewById(R.id.EditTextSurname);
-        etEmail = (EditText) findViewById(R.id.EditTextEmail);
+        etEmail = (EditText) findViewById(R.id.EditTextSurname);
 
         // создаем объект для создания и управления версиями БД
         dbHelper = new DBHelper(this);
@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 contentValues.put(DBHelper.KEY_NAME, name);
                 contentValues.put(DBHelper.KEY_SURNAME, surname);
-                contentValues.put(DBHelper.KEY_MAIL, email);
+                contentValues.put(DBHelper.KEY_EMAIL, email);
 
                 // вставляем запись и получаем ее ID
-                long rowID = database.insert(DBHelper.DATABASE_NAME, null, contentValues);
+                long rowID = database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
                 Log.d(LOG_TAG, "row inserted, ID = " + rowID);
                 break;
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
                     int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
                     int surnameIndex = cursor.getColumnIndex(DBHelper.KEY_SURNAME);
-                    int emailIndex = cursor.getColumnIndex(DBHelper.KEY_MAIL);
+                    int emailIndex = cursor.getColumnIndex(DBHelper.KEY_EMAIL);
 
                     do {
 
